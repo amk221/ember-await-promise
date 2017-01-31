@@ -1,5 +1,23 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<label>
+  <input
+    checked
+    type="checkbox"
+    value={{resolveSuccessfully}}
+    onclick={{action (mut resolveSuccessfully) value="target.checked"}}>
+    Resolve successfully
+</label>
 
-{{outlet}}
+<br>
+
+Delay:
+
+<input
+  type="number"
+  value={{promiseDelay}}
+  oninput={{action (mut promiseDelay) value="target.value"}}>
+
+<button {{action 'loadItems'}}>Load items</button>
+
+<hr>
+
+{{items-list items-promise=promiseForItems}}

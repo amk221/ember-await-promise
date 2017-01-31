@@ -1,4 +1,4 @@
 {
-  "name": "ember-await-promise",
+  "name": "ember-promise-cps",
   "dependencies": {}
 }

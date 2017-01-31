@@ -1,0 +1,11 @@
+{{#if proxy.isPending}}
+  Loading items
+{{else if proxy.isRejected}}
+  Unable to display items: {{proxy.reason.message}}
+{{else if proxy.isFulfilled}}
+  <ul>
+    {{#each proxy.items as |item|}}
+      <li>{{item.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

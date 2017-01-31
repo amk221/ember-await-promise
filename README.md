@@ -1,27 +1,58 @@
-# ember-await-promise
+# ember-promise-cps
 
-This README outlines the details of collaborating on this Ember addon.
+<a href="http://emberobserver.com/addons/ember-promise-cps"><img src="http://emberobserver.com/badges/ember-promise-cps.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-promise-cps#badge-embed"><img src="https://david-dm.org/amk221/ember-promise-cps.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-promise-cps#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-promise-cps/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/github/amk221/ember-promise-cps"><img src="https://codeclimate.com/github/amk221/ember-promise-cps/badges/gpa.svg" /></a> &nbsp; <a href="http://travis-ci.org/amk221/ember-promise-cps"><img src="https://travis-ci.org/amk221/ember-promise-cps.svg?branch=master"></a>
 
-## Installation
+This Ember addon provides you with a computed property macros to aid with common problems when passing promises into components:
 
-* `git clone <repository-url>` this repository
-* `cd ember-await-promise`
-* `npm install`
-* `bower install`
+1. Subsequent promises take priorty over 'old' promises<br>
+  (You're usually only ever bothered about the result from the most recent promise)
+2. Setting the result of the promise on the component when the component may since have been destroyed.
 
-## Running
+## Example
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+```handlebars
+{{! application.hbs }}
+{{items-list items-promise=promiseForItems}}
+```
 
-## Running Tests
+```javascript
+// items-list/component.js
+import promiseObject from 'ember-promise-cps/utils';
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+export default Component.extend({
+  proxy: promiseObject('items-promise')
+});
+```
 
-## Building
+```handlebars
+{{! items-list/template.hbs }}
+{{#if proxy.isPending}}
+  Loading items
+{{else if proxy.isRejected}}
+  Unable to display items: {{proxy.reason}}
+{{else if proxy.isFulfilled}}
+  {{#each proxy.items as |item|}}
+    ...
+  {{/each}}
+{{/if}}
+```
 
-* `ember build`
+### Notes
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+1. If you use helpers to resolve the promise inside your template like:
+  ```handlebars
+  {{#if (await items)}}
+    {{#each items as |item|}}
+      ...
+  ```   
+
+    ...then the downside is you don't _also_ have the ability to base more computed properties on the result of that promise in the component itself. (It's more useful to resolve the promise in the component, and let your template read the properties rather than the other way around. It also leads to simpler templates).
+
+2. If you need something more substantial, see:
+[http://ember-concurrency.com/](http://ember-concurrency.com/)
+
+
+### Installation
+```
+ember install ember-promise-cps
+```

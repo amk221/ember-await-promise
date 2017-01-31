@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-await-promise'
+  name: 'ember-promise-cps'
 };
