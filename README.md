@@ -20,22 +20,31 @@ This Ember addon provides you with a computed property macros to aid with common
 import { promiseObject } from 'ember-promise-cps/macros';
 
 export default Component.extend({
-  proxy: promiseObject('items-promise')
+  items: promiseArray('items-promise')
 });
 ```
 
 ```handlebars
 {{! items-list/template.hbs }}
-{{#if proxy.isPending}}
+{{#if items.isPending}}
   Loading items
-{{else if proxy.isRejected}}
-  Unable to display items: {{proxy.reason}}
-{{else if proxy.isFulfilled}}
-  {{#each proxy.items as |item|}}
+{{else if items.isRejected}}
+  Unable to display items: {{items.reason}}
+{{else if items.isFulfilled}}
+  {{#each items as |item|}}
     ...
   {{/each}}
 {{/if}}
 ```
+
+### Available utils/macros
+
+* Utils
+  * `promiseObject({ foo: 'bar' })`
+  * `promiseArray([ 'foo', 'bar' ])`
+* Macros
+  * `promiseObject('myObject')`
+  * `promiseArray('myArray')`
 
 ### Notes
 

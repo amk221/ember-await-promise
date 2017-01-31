@@ -12,7 +12,7 @@ export default Route.extend({
       const promise = new RSVP.Promise((resolve, reject) => {
         later(() => {
           if (success) {
-            resolve({ items });
+            resolve(items);
           } else {
             reject(new Error('Could not load items'));
           }

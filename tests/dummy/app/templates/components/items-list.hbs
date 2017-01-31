@@ -4,7 +4,7 @@
   Unable to display items: {{proxy.reason.message}}
 {{else if proxy.isFulfilled}}
   <ul>
-    {{#each proxy.items as |item|}}
+    {{#each proxy as |item|}}
       <li>{{item.name}}</li>
     {{/each}}
   </ul>
