@@ -1,7 +1,7 @@
 {
-  "name": "ember-auto-focus",
-  "version": "1.0.5",
-  "description": "An HTML autofocus solution for Ember apps",
+  "name": "ember-promise-cps",
+  "version": "0.0.1",
+  "description": "Promise Proxy Object computed properties",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amk221/ember-auto-focus.git"
+    "url": "https://github.com/amk221/ember-promise-cps.git"
   },
   "engines": {
     "node": ">= 0.12.0"
@@ -46,15 +46,16 @@
   },
   "keywords": [
     "ember-addon",
-    "autofocus",
-    "input",
-    "textarea"
+    "promise",
+    "proxy",
+    "computed",
+    "property"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
   "bugs": {
-    "url": "https://github.com/amk221/ember-auto-focus/issues"
+    "url": "https://github.com/amk221/ember-promise-cps/issues"
   },
-  "homepage": "https://github.com/amk221/ember-auto-focus"
+  "homepage": "https://github.com/amk221/ember-promise-cps"
 }
