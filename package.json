@@ -1,6 +1,6 @@
 {
   "name": "ember-promise-cps",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Promise Proxy Object computed properties",
   "directories": {
     "doc": "doc",
