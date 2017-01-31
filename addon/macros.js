@@ -6,7 +6,7 @@ const { ObjectProxy, PromiseProxyMixin } = Ember;
 const { resolve } = RSVP;
 const PromiseProxy = ObjectProxy.extend(PromiseProxyMixin);
 
-export default function promiseObject(key) {
+export function promiseObject(key) {
   return computed(key, function() {
     return PromiseProxy.create({
       promise: resolve(this.get(key))

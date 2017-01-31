@@ -1,1 +1,1 @@
-export { default } from 'ember-promise-cps/utils';
+export { default } from 'ember-promise-cps/macros';

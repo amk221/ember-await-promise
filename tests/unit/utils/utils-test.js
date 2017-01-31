@@ -1,5 +1,5 @@
 import RSVP from 'rsvp';
-import promiseObject from 'ember-promise-cps/utils';
+import { promiseObject } from 'ember-promise-cps/macros';
 import EmberObject from 'ember-object';
 import { module, test } from 'qunit';
 const { defer } = RSVP;

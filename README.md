@@ -17,7 +17,7 @@ This Ember addon provides you with a computed property macros to aid with common
 
 ```javascript
 // items-list/component.js
-import promiseObject from 'ember-promise-cps/utils';
+import { promiseObject } from 'ember-promise-cps/macros';
 
 export default Component.extend({
   proxy: promiseObject('items-promise')

@@ -22,15 +22,19 @@ function delay(value, ms) {
 test('it renders', function(assert) {
   assert.expect(1);
 
-  const firstItems = delay([
-    { name: 'foo' },
-    { name: 'bar' }
-  ], 200);
+  const firstItems = delay({
+    items: [
+      { name: 'foo' },
+      { name: 'bar' }
+    ]
+  }, 200);
 
-  const secondItems = delay([
-    { name: 'bar' },
-    { name: 'baz' }
-  ], 100);
+  const secondItems = delay({
+    items: [
+      { name: 'bar' },
+      { name: 'baz' }
+    ]
+  }, 100);
 
   this.set('promiseForItems', firstItems);
 

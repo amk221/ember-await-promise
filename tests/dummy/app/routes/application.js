@@ -5,7 +5,7 @@ import { later } from 'ember-runloop';
 
 export default Route.extend({
   actions: {
-    load() {
+    loadItems() {
       const success = Boolean(this.get('controller.resolveSuccessfully'));
       const delay   = Number(this.get('controller.promiseDelay'));
 
