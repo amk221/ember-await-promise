@@ -4,7 +4,7 @@ import EmberObject from 'ember-object';
 import { module, test } from 'qunit';
 const { defer } = RSVP;
 
-module('awaitPromise');
+module('macros');
 
 const object = EmberObject.extend({
   proxy: promiseObject('promise')
@@ -12,7 +12,7 @@ const object = EmberObject.extend({
 
 
 
-test('successful promises', function(assert) {
+test('#promiseObject (resolves ok)', function(assert) {
   assert.expect(3);
 
   const deferred = defer();
@@ -29,7 +29,7 @@ test('successful promises', function(assert) {
 });
 
 
-test('unsuccessful promises', function(assert) {
+test('#promiseObject (rejects)', function(assert) {
   assert.expect(2);
 
   const deferred = defer();
