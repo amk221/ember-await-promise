@@ -2,7 +2,7 @@
 
 <a href="http://emberobserver.com/addons/ember-promise-cps"><img src="http://emberobserver.com/badges/ember-promise-cps.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-promise-cps#badge-embed"><img src="https://david-dm.org/amk221/ember-promise-cps.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-promise-cps#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-promise-cps/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/github/amk221/ember-promise-cps"><img src="https://codeclimate.com/github/amk221/ember-promise-cps/badges/gpa.svg" /></a> &nbsp; <a href="http://travis-ci.org/amk221/ember-promise-cps"><img src="https://travis-ci.org/amk221/ember-promise-cps.svg?branch=master"></a>
 
-This Ember addon provides you with a computed property macros to aid with common problems when working with promises in components.
+This Ember addon provides you with utils and computed property macros to aid with common problems when working with promises in components.
 
 1. Subsequent promises take priorty over 'old' promises<br>
   (You're usually only ever bothered about the result from the most recent promise)
