@@ -13,7 +13,7 @@ const object = EmberObject.extend({
 
 
 test('#promiseObject (resolves ok)', function(assert) {
-  assert.expect(3);
+  assert.expect(2);
 
   const deferred = defer();
 
@@ -22,7 +22,6 @@ test('#promiseObject (resolves ok)', function(assert) {
   deferred.resolve({ foo: 'bar' });
 
   return object.get('proxy').then(() => {
-    assert.deepEqual(object.get('proxy.content'), { foo: 'bar' });
     assert.equal(object.get('proxy.foo'), 'bar');
     assert.strictEqual(object.get('proxy.isFulfilled'), true);
   });
@@ -39,7 +38,7 @@ test('#promiseObject (rejects)', function(assert) {
   deferred.reject({ foo: 'bar' });
 
   return object.get('proxy').catch(() => {
-    assert.deepEqual(object.get('proxy.reason'), { foo: 'bar' });
+    assert.equal(object.get('proxy.reason.foo'), 'bar');
     assert.strictEqual(object.get('proxy.isRejected'), true);
   });
 });
