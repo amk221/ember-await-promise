@@ -8,6 +8,10 @@ This Ember addon provides you with utils and computed property macros to aid wit
   (You're usually only ever bothered about the result from the most recent promise)
 2. Setting the result of the promise on the component when the component may since have been destroyed will error.
 
+## No longer maintained
+
+Please use [http://ember-concurrency.com](http://ember-concurrency.com) instead
+
 ## Example
 
 ```handlebars
@@ -45,21 +49,6 @@ export default Component.extend({
 * Macros
   * `promiseObject('myObject')`
   * `promiseArray('myArray')`
-
-### Notes
-
-1. If you use helpers to resolve the promise inside your template like:
-  ```handlebars
-  {{#if (await items)}}
-    {{#each items as |item|}}
-      ...
-  ```   
-
-    ...then the downside is you don't _also_ have the ability to base more computed properties on the result of that promise in the component itself. (It's more useful to resolve the promise in the component, and let your template read the properties rather than the other way around. It also leads to simpler templates).
-
-2. If you need something more substantial, see:
-[http://ember-concurrency.com/](http://ember-concurrency.com/)
-
 
 ### Installation
 ```
